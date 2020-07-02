@@ -1,0 +1,211 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+$backgroundColor:#F0EFE9;
+$logo:url('./logo.svg');
+$deleteIcon:url('../assets/icons/delete.svg');
+$checkIcon:url('../assets/icons/tick.svg');
+$addIcon:url('../assets/icons/add.svg');
+$plusIcon:url('../assets/icons/plus.svg');
+$backIcon:url('../assets/icons/back.svg');
+$width:100%;
+$height:100%;
+$value0: 0px;
+$margin: auto;
+$inputH : 55px;
+$Size: 40px;
+$primary_color:#50E3A4;
+
+@mixin overlay() {
+    padding: $value0;
+    margin: $margin;
+    width: $width;
+    height: $height;
+}
+@mixin options {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+@mixin  button {
+    margin: -25px auto;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    border: solid 3px #F0EFE9; 
+    background-color: white;
+    border-radius: $Size;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.container{
+    margin-top: 12%;
+}
+.content{
+    margin-top: 5%;
+}
+body{background-color: #F0EFE9;}
+hr{margin: 0px;}
+.imgLogo{
+    background-image: $logo;
+    width: 150px;
+    height: 60px;
+    margin: $margin;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 30px;
+}
+.loginForm{
+    @include overlay();
+    max-width: 300px;
+    .username{
+         border:$value0;
+         border-radius: 10px 10px 0px 0px;
+         height: $inputH;
+    }
+    .password{
+        border: $value0;
+        border-radius: 0px 0px 10px 10px;
+        height: $inputH;
+    }
+    Button{
+      background-color:$primary_color ;
+      margin: $margin;
+      width: 120px;
+      height: $Size;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: $value0;
+      border-radius: $Size;
+    &:hover{background-color:$primary_color ;}
+    }
+}
+.addForm{
+    @include overlay();
+    max-width:  430px;
+    .formg{
+        margin-bottom: 0px;
+        .inpG{
+            background-color: white;
+            border-radius: 10px;
+            position: relative;
+            .WhatN{
+                border:$value0;
+                border-radius: 10px;
+                height: 100px;
+                text-align: center;
+                display: inline-block;
+            }
+            .ıconP{
+                width: 20px;
+                height: 20px;
+                background-image: $plusIcon;
+                background-repeat: no-repeat;
+                background-size: contain; 
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                margin:5px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+       
+        Button{
+           @include button();
+           background-image: $addIcon;
+        }
+       
+    }
+    
+    
+}
+.tList{
+    max-width:  430px;
+    border-radius: 10px;
+    background-color: white;
+    @include overlay();
+    ul{
+        padding: 0px;
+        padding-top: 25px;
+        li{
+            position: relative;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            padding:0px 20px 0px 20px;
+            justify-content: space-between;
+            align-items: center;
+            &:hover{
+                background-color: #f2f2f2;
+                border-radius: 5px;
+                position: relative;
+                .delete{
+                    background-image: $deleteIcon;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+          
+            .title{
+                overflow: hidden;
+                flex: 0 0 65%;
+            }
+            .type{
+                @include options();
+                border: solid 1px #B2B2B2;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .delete{
+                @include options();
+            }
+           
+        }
+           
+    }
+    li.active {
+        .type{
+            border:0px;
+            background-image: $checkIcon;
+            background-repeat: no-repeat;
+            background-size: contain;  
+        }
+        .title{
+            text-decoration: line-through;
+            color: #cccccc;
+        }
+    }
+}
+.detaContainer{
+    margin-top: 3%;
+    .detail{
+        padding: 15px;
+        margin: $margin;
+        height: $height;
+        max-width: 400px;
+        background-color: white;
+        border-radius: 10px ;
+    }
+    Button{
+        @include button();
+        background-image: $backIcon;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
